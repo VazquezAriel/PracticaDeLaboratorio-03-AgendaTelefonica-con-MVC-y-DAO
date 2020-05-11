@@ -1,2 +1,1 @@
-# Pr-ctica-de-laboratorio-03-Agenda-Telef-nica-con-MVC-y-DAO
-Practica en la cual se aplicara los patrones de diseño de software MVC y DAO para desarrollar una aplicación que permita implementar una agenda telefónica en donde se tendrán usuarios con datos como cédula, nombres, apellidos, correo y contraseña. Y cada uno de estos usuarios podrá tener asignado uno o más teléfonos de contacto de diferente tipo y operador.
+# PracticaDeLaboratorio-03-AgendaTelefonica-con-MVC-y-DAO
