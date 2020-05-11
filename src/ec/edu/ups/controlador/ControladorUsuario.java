@@ -9,7 +9,7 @@ import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.VistaUsuario;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -52,7 +52,7 @@ public class ControladorUsuario {
 
     //llama al DAO para obtener todos los clientes y luego los muestra en la vista
     public void verUsuarios() {
-        List<Usuario> usuarios;
+        Collection<Usuario> usuarios;
         usuarios = usuarioDAO.findAll();
         vistaUsuario.verUsuarios(usuarios);
     }

@@ -21,7 +21,7 @@ public class Menu {
         int opcion2 = 0;
         Scanner leer = new Scanner(System.in);
         VistaUsuario vistaUsuario = new VistaUsuario();
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario);
 
         while (opcion != 4) {
 
@@ -43,7 +43,8 @@ public class Menu {
                     System.out.println("                        REGISTRO");
                     System.out.println("------------------------------------------------------\n");
                     
-                    vistaUsuario.ingresarUsuario();
+                    controladorUsuario.registrar();
+                    System.out.println("\n*********  Usuario registrado con exito  **************");
                     break;
                     
                 case 2:
@@ -82,6 +83,8 @@ public class Menu {
                     System.out.println("------------------------------------------------------");
                     System.out.println("                 USUARIOS REGISTRADOS");
                     System.out.println("------------------------------------------------------\n");
+                    
+                    controladorUsuario.verUsuarios();
                     break;
                     
                 case 4:

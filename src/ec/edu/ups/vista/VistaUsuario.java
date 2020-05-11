@@ -6,7 +6,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.modelo.Usuario;
-import java.util.List;
+import java.util.Collection;
 import java.util.Scanner;
 
 /**
@@ -64,7 +64,7 @@ public class VistaUsuario {
         System.out.println("Datos del Usuario: " + usuario);
     }
 
-    public void verUsuarios(List<Usuario> usuarios) {
+    public void verUsuarios(Collection<Usuario> usuarios) {
         for (Usuario usuario : usuarios) {
             System.out.println("Datos del Cliente: " + usuario);
         }

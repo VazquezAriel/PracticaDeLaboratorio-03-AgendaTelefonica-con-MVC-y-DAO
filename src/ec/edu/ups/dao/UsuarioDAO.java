@@ -7,37 +7,46 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author ariel
  */
 public class UsuarioDAO implements IUsuarioDAO{
+    
+    private Map<String, Usuario> usuarios;
+
+    public UsuarioDAO() {
+        usuarios = new HashMap<String, Usuario>();
+    }
 
     @Override
     public void create(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuarios.put(usuario.getCedula(), usuario);
     }
 
     @Override
     public Usuario read(String cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarios.get(cedula);
     }
 
     @Override
     public void update(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuarios.put(usuario.getCedula(), usuario);
     }
 
     @Override
     public void delete(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuarios.remove(usuario.getCedula());
     }
 
     @Override
-    public List<Usuario> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Collection<Usuario> findAll() {
+        Collection<Usuario> usuarios = this.usuarios.values();
+        return usuarios;
     }
     
 }
