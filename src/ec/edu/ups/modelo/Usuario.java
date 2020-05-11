@@ -7,6 +7,7 @@ package ec.edu.ups.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -67,6 +68,35 @@ public class Usuario {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.correo);
+        hash = 53 * hash + Objects.hashCode(this.contraseña);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.correo, other.correo)) {
+            return false;
+        }
+        if (!Objects.equals(this.contraseña, other.contraseña)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

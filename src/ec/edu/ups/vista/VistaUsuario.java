@@ -14,13 +14,13 @@ import java.util.Scanner;
  * @author ariel
  */
 public class VistaUsuario {
-    
+
     private Scanner leer;
 
     public VistaUsuario() {
         leer = new Scanner(System.in);
     }
-    
+
     public Usuario ingresarUsuario() {
         System.out.println("Ingrese los datos del usuario\n");
         System.out.print("Cedula:  ");
@@ -33,15 +33,24 @@ public class VistaUsuario {
         String correo = leer.nextLine();
         System.out.print("Contraseña:  ");
         String contraseña = leer.nextLine();
-        return  new Usuario(cedula, nombre, apellido, correo, contraseña);
+        return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
-    
+
+    public Usuario inicioSecion() {
+        System.out.println("Ingrese sus datos:\n");
+        System.out.print("Correo Electronico:  ->");
+        String correo = leer.nextLine();
+        System.out.print("Contraseña:  ->");
+        String contraseña = leer.nextLine();
+        return new Usuario(null, null, null, correo, contraseña);
+    }
+
     public String buscarUsuario() {
         System.out.print("Ingrese el numero de cedula del usuario:  ");
         return leer.nextLine();
     }
-    
-    public Usuario actualizarUsuario(){
+
+    public Usuario actualizarUsuario() {
         String cedula = buscarUsuario();
         System.out.println("Ingrese los nuevos datos\n");
         System.out.print("Nombre:  ");
@@ -54,19 +63,19 @@ public class VistaUsuario {
         String contraseña = leer.nextLine();
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
-    
+
     public Usuario eliminarUsuario() {
         String cedula = buscarUsuario();
         return new Usuario(cedula, null, null, null, null);
     }
-    
+
     public void verUsuario(Usuario usuario) {
         System.out.println("Datos del Usuario: " + usuario);
     }
 
     public void verUsuarios(Collection<Usuario> usuarios) {
         for (Usuario usuario : usuarios) {
-            System.out.println("Datos del Cliente: " + usuario);
+            System.out.println("Datos del Usuario: " + usuario);
         }
     }
 }

@@ -49,6 +49,17 @@ public class ControladorUsuario {
         usuario = vistaUsuario.eliminarUsuario();
         usuarioDAO.delete(usuario);
     }
+    
+    public String Autentificar(){
+        Collection<Usuario> usuarios = usuarioDAO.findAll();
+        usuario = vistaUsuario.inicioSecion();
+        for (Usuario usuario1 : usuarios) {
+            if (usuario1.equals(usuario)) {
+                return usuario1.getCedula();
+            }
+        }
+        return null;
+    }
 
     //llama al DAO para obtener todos los clientes y luego los muestra en la vista
     public void verUsuarios() {
