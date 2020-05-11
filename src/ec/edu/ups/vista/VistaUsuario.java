@@ -5,10 +5,68 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.modelo.Usuario;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author ariel
  */
 public class VistaUsuario {
     
+    private Scanner leer;
+
+    public VistaUsuario() {
+        leer = new Scanner(System.in);
+    }
+    
+    public Usuario ingresarUsuario() {
+        System.out.println("Ingrese los datos del usuario\n");
+        System.out.print("Cedula:  ");
+        String cedula = leer.nextLine();
+        System.out.print("Nombre:  ");
+        String nombre = leer.nextLine();
+        System.out.print("Apellido:  ");
+        String apellido = leer.nextLine();
+        System.out.print("Correo Electronico:  ");
+        String correo = leer.nextLine();
+        System.out.print("Contraseña:  ");
+        String contraseña = leer.nextLine();
+        return  new Usuario(cedula, nombre, apellido, correo, contraseña);
+    }
+    
+    public String buscarUsuario() {
+        System.out.print("Ingrese el numero de cedula del usuario:  ");
+        return leer.nextLine();
+    }
+    
+    public Usuario actualizarUsuario(){
+        String cedula = buscarUsuario();
+        System.out.println("Ingrese los nuevos datos\n");
+        System.out.print("Nombre:  ");
+        String nombre = leer.nextLine();
+        System.out.print("Apellido:  ");
+        String apellido = leer.nextLine();
+        System.out.print("Correo Electronico:  ");
+        String correo = leer.nextLine();
+        System.out.print("Contraseña:  ");
+        String contraseña = leer.nextLine();
+        return new Usuario(cedula, nombre, apellido, correo, contraseña);
+    }
+    
+    public Usuario eliminarUsuario() {
+        String cedula = buscarUsuario();
+        return new Usuario(cedula, null, null, null, null);
+    }
+    
+    public void verUsuario(Usuario usuario) {
+        System.out.println("Datos del Usuario: " + usuario);
+    }
+
+    public void verUsuarios(List<Usuario> usuarios) {
+        for (Usuario usuario : usuarios) {
+            System.out.println("Datos del Cliente: " + usuario);
+        }
+    }
 }

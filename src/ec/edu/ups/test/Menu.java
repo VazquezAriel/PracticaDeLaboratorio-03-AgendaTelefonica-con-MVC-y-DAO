@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.test;
 
+import ec.edu.ups.controlador.ControladorUsuario;
+import ec.edu.ups.vista.VistaUsuario;
 import java.util.Scanner;
 
 /**
@@ -18,6 +20,8 @@ public class Menu {
         int opcion = 0;
         int opcion2 = 0;
         Scanner leer = new Scanner(System.in);
+        VistaUsuario vistaUsuario = new VistaUsuario();
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
 
         while (opcion != 4) {
 
@@ -26,7 +30,7 @@ public class Menu {
             System.out.println("------------------------------------------------------\n");
 
             System.out.println("1).- Registrarse");
-            System.out.println("2).- Iniciar Secion");
+            System.out.println("2).- Iniciar Sesion");
             System.out.println("3).- Mostrar Usuarios Registrados");
             System.out.println("4).- Salir");
             System.out.print("\nSeleccione una opcion:  ->");
@@ -38,6 +42,8 @@ public class Menu {
                     System.out.println("------------------------------------------------------");
                     System.out.println("                        REGISTRO");
                     System.out.println("------------------------------------------------------\n");
+                    
+                    vistaUsuario.ingresarUsuario();
                     break;
                     
                 case 2:
@@ -47,13 +53,9 @@ public class Menu {
                     
                     while (opcion2 != 7) {
                         
-                        System.out.println("1).- Editar numero de cedula");
-                        System.out.println("2).- Editar nombre");
-                        System.out.println("3).- Editar apellido");
-                        System.out.println("4).- Editar correo electronico");
-                        System.out.println("5).- Editar contraseña");
-                        System.out.println("6).- Editar telefonos");
-                        System.out.println("7).- Volver al menu");
+                        System.out.println("1).- Editar datos");
+                        System.out.println("2).- Eliminar Usuario");
+                        System.out.println("3).- Volver al menu");
                         System.out.print("\nSeleccione una opcion:  ->");
                         opcion2 = leer.nextInt();
                         
@@ -66,18 +68,6 @@ public class Menu {
                                 break;
                                 
                             case 3:
-                                break;
-                                
-                            case 4:
-                                break;
-                            
-                            case 5:
-                                break;
-                                
-                            case 6:
-                                break;
-                                
-                            case 7:
                                 break;
                             
                             default:
