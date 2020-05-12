@@ -54,7 +54,7 @@ public class ControladorUsuario {
         Collection<Usuario> usuarios = usuarioDAO.findAll();
         usuario = vistaUsuario.inicioSecion();
         for (Usuario usuario1 : usuarios) {
-            if (usuario1.equals(usuario)) {
+            if (usuario.equals(usuario1)) {
                 return usuario1;
             }
         }

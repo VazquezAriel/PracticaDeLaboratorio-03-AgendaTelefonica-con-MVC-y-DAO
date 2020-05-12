@@ -107,8 +107,9 @@ public class Usuario {
     
     public void listarTelefonos() {
         Collection<Telefono> telefonos = this.telefonos.values();
+        System.out.println("");
         for (Telefono telefono1 : telefonos) {
-            System.out.println(telefono1);
+            System.out.println( telefono1);
         }
     }
 
@@ -143,7 +144,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
+        listarTelefonos();
+        return "{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
     }
     
 }

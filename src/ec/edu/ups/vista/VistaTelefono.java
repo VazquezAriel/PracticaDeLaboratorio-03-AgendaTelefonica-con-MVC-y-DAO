@@ -31,7 +31,7 @@ public class VistaTelefono {
         String numero = leer.nextLine();
         System.out.print("Tipo:  ");
         String tipo = leer.nextLine();
-        System.out.println("Operadora:  ");
+        System.out.print("Operadora:  ");
         String operadora = leer.nextLine();
         return new Telefono(codigo, numero, tipo, operadora);
     }

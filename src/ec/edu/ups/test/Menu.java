@@ -55,11 +55,11 @@ public class Menu {
                     System.out.println("------------------------------------------------------\n");
                     
                     Usuario usuarioAutentificado = controladorUsuario.Autentificar();
-                    String cedula = usuarioAutentificado.getCedula();
                     if (usuarioAutentificado == null) {
                         System.out.println("\n****  Correo electronico o contraseña incorrectos  ****");
                         break;
-                    }
+                    } 
+                    String cedula = usuarioAutentificado.getCedula();
                     
                     while (opcion2 != 5) {
 

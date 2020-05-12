@@ -67,8 +67,11 @@ public class VistaUsuario {
     }
 
     public void verUsuarios(Collection<Usuario> usuarios) {
-        for (Usuario usuario : usuarios) {
+        int aux = 0;
+        for (Usuario usuario : usuarios){
+            System.out.println("Usuario #" + ++aux + ":");
             System.out.println("Datos del Usuario: " + usuario);
+            System.out.println("------------------------------------------------------");
         }
     }
 }
