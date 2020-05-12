@@ -16,7 +16,7 @@ import java.util.Collection;
  * @author ariel
  */
 public class ControladorUsuario {
-    
+
     private VistaUsuario vistaUsuario;
     private Usuario usuario;
     private IUsuarioDAO usuarioDAO;
@@ -25,43 +25,53 @@ public class ControladorUsuario {
         this.vistaUsuario = vistaUsuario;
         this.usuarioDAO = new UsuarioDAO();
     }
-    
+
     public void registrar() {
         usuario = vistaUsuario.ingresarUsuario();
         usuarioDAO.create(usuario);
     }
 
-    //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
-    public void verUsuario() {
-        String cedula = vistaUsuario.buscarUsuario();
+    public void verUsuario(String cedula) {
         usuario = usuarioDAO.read(cedula);
         vistaUsuario.verUsuario(usuario);
     }
 
-    //llama al DAO para actualizar un cliente
-    public void actualizar() {
-        usuario = vistaUsuario.actualizarUsuario();
+    public void actualizar(String cedula) {
+        usuario = vistaUsuario.actualizarUsuario(cedula);
+        usuarioDAO.update(usuario);
+    }
+    
+    public void actualizar(Usuario usuario) {
         usuarioDAO.update(usuario);
     }
 
-    //llama al DAO para eliminar un cliente
-    public void eliminar() {
-        usuario = vistaUsuario.eliminarUsuario();
+    public void eliminar(String cedula) {
+        usuario = vistaUsuario.eliminarUsuario(cedula);
         usuarioDAO.delete(usuario);
     }
-    
-    public String Autentificar(){
+
+    public Usuario Autentificar() {
         Collection<Usuario> usuarios = usuarioDAO.findAll();
         usuario = vistaUsuario.inicioSecion();
         for (Usuario usuario1 : usuarios) {
             if (usuario1.equals(usuario)) {
-                return usuario1.getCedula();
+                return usuario1;
             }
         }
         return null;
     }
 
-    //llama al DAO para obtener todos los clientes y luego los muestra en la vista
+    public Usuario mostrarUsuario(String cedula) {
+        Collection<Usuario> usuarios = usuarioDAO.findAll();
+        usuario = vistaUsuario.inicioSecion();
+        for (Usuario usuario1 : usuarios) {
+            if (usuario1.getCedula().equals(cedula)) {
+                return usuario1;
+            }
+        }
+        return null;
+    }
+
     public void verUsuarios() {
         Collection<Usuario> usuarios;
         usuarios = usuarioDAO.findAll();

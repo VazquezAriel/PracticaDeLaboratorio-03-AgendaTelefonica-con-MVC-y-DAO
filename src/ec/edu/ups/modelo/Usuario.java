@@ -5,8 +5,10 @@
  */
 package ec.edu.ups.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+import ec.edu.ups.vista.VistaTelefono;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -20,14 +22,21 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
-    private List<Telefono> telefonos;
+    private Map<String, Telefono> telefonos;
+    private VistaTelefono vistaTelefono;
 
     public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
+        vistaTelefono = new VistaTelefono();
+        telefonos = new HashMap<String, Telefono>();
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contraseña = contraseña;
+    }
+
+    public Usuario() {
+        
     }
 
     public String getCedula() {
@@ -68,6 +77,39 @@ public class Usuario {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
+    }
+    
+    public void agregarTelefono() {
+        Telefono telefono = vistaTelefono.ingresarTelefono();
+        telefonos.put(telefono.getNumero(), telefono);
+    }
+    
+    public void editarTelefono() {
+        Telefono telefono = vistaTelefono.actualizarTelefono();
+        telefonos.put(telefono.getNumero(), telefono);
+    }
+    
+    public void eliminarTelefono() {
+        Telefono telefono = vistaTelefono.eliminarTelefono();
+        telefonos.remove(telefono.getNumero());
+    }
+    
+    public Telefono buscarTelefono() {
+        Telefono telefono = vistaTelefono.buscarTelefono();
+        Collection<Telefono> telefonos = this.telefonos.values();
+        for (Telefono telefono1 : telefonos) {
+            if (telefono1.equals(telefono)) {
+                return telefono1;
+            }
+        }
+        return null;
+    }
+    
+    public void listarTelefonos() {
+        Collection<Telefono> telefonos = this.telefonos.values();
+        for (Telefono telefono1 : telefonos) {
+            System.out.println(telefono1);
+        }
     }
 
     @Override
