@@ -13,26 +13,31 @@ import java.util.Objects;
  */
 public class Telefono {
     
-    private int codigo;
+    //Atributos
+    private String codigo;
     private String numero;
     private String tipo;
     private String operadora;
 
+    //Constructor sin parametros
     public Telefono() {
+        
     }
 
-    public Telefono(int codigo, String numero, String tipo, String operadora) {
+    //Constructor con parametros
+    public Telefono(String codigo, String numero, String tipo, String operadora) {
         this.codigo = codigo;
         this.numero = numero;
         this.tipo = tipo;
         this.operadora = operadora;
     }
 
-    public int getCodigo() {
+    //Metodos Get y Set
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -60,10 +65,11 @@ public class Telefono {
         this.operadora = operadora;
     }
 
+    //Metodos de la clase Object
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.numero);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -79,17 +85,15 @@ public class Telefono {
             return false;
         }
         final Telefono other = (Telefono) obj;
-        if (!Objects.equals(this.numero, other.numero)) {
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
     }
-    
-    
 
     @Override
     public String toString() {
         return "Telefono{" + "codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + '}';
     }
-    
+   
 }

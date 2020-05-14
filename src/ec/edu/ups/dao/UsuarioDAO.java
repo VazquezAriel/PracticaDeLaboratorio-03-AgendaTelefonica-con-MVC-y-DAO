@@ -17,12 +17,15 @@ import java.util.Map;
  */
 public class UsuarioDAO implements IUsuarioDAO{
     
+    //Diccionario de Usuarios
     private Map<String, Usuario> usuarios;
 
+    //Constructor
     public UsuarioDAO() {
         usuarios = new HashMap<String, Usuario>();
     }
 
+    //Metodos de la Interface IUsuario
     @Override
     public void create(Usuario usuario) {
         usuarios.put(usuario.getCedula(), usuario);

@@ -5,10 +5,8 @@
  */
 package ec.edu.ups.modelo;
 
-import ec.edu.ups.vista.VistaTelefono;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,29 +14,31 @@ import java.util.Objects;
  * @author ariel
  */
 public class Usuario {
-    
+
+    //atributos
     private String cedula;
     private String nombre;
     private String apellido;
     private String correo;
     private String contraseña;
-    private Map<String, Telefono> telefonos;
-    private VistaTelefono vistaTelefono;
+    //atributo de agregacion
+    private List<Telefono> telefonos;
+
+    //constructores
+    public Usuario() {
+        telefonos = new ArrayList<>();
+    }
 
     public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
-        vistaTelefono = new VistaTelefono();
-        telefonos = new HashMap<String, Telefono>();
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contraseña = contraseña;
+        telefonos = new ArrayList<>();
     }
 
-    public Usuario() {
-        
-    }
-
+    //Metodos Get y Set
     public String getCedula() {
         return cedula;
     }
@@ -78,41 +78,35 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
-    public void agregarTelefono() {
-        Telefono telefono = vistaTelefono.ingresarTelefono();
-        telefonos.put(telefono.getNumero(), telefono);
-    }
-    
-    public void editarTelefono() {
-        Telefono telefono = vistaTelefono.actualizarTelefono();
-        telefonos.put(telefono.getNumero(), telefono);
-    }
-    
-    public void eliminarTelefono() {
-        Telefono telefono = vistaTelefono.eliminarTelefono();
-        telefonos.remove(telefono.getNumero());
-    }
-    
-    public Telefono buscarTelefono() {
-        Telefono telefono = vistaTelefono.buscarTelefono();
-        Collection<Telefono> telefonos = this.telefonos.values();
-        for (Telefono telefono1 : telefonos) {
-            if (telefono1.equals(telefono)) {
-                return telefono1;
-            }
-        }
-        return null;
-    }
-    
-    public void listarTelefonos() {
-        Collection<Telefono> telefonos = this.telefonos.values();
-        System.out.println("");
-        for (Telefono telefono1 : telefonos) {
-            System.out.println( telefono1);
-        }
+
+    //Agrega un telefono a la lista telefonos
+    public void agregarTelefono(Telefono telefono) {
+        telefonos.add(telefono);
     }
 
+    //Actualiza el telefono ingresado en la lista telefonos
+    public void editarTelefono(Telefono telefono) {
+        int index = telefonos.indexOf(telefono);
+        telefonos.set(index, telefono);
+    }
+
+    //Elimina el telefono ingresado de la lista telefonos
+    public void eliminarTelefono(Telefono telefono) {
+        int index = telefonos.indexOf(telefono);
+        telefonos.remove(index);
+    }
+
+    //Busca el Telefono correspondiente al codigo ingresado
+    public Telefono buscarTelefono(int codigo) {
+        return telefonos.get(codigo);
+    }
+
+    //debuelve la lista telefonos
+    public List<Telefono> listarTelefonos() {
+        return telefonos;
+    }
+
+    //Metodos de la clase Object
     @Override
     public int hashCode() {
         int hash = 3;
@@ -144,8 +138,12 @@ public class Usuario {
 
     @Override
     public String toString() {
-        listarTelefonos();
+        if (!listarTelefonos().isEmpty()) {
+            System.out.println("Telefonos: " + listarTelefonos());
+        } else {
+            System.out.println("Aun no tiene ningun telefono registrado");
+        }
         return "{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
     }
-    
+
 }
