@@ -4,4 +4,5 @@
 •	Se creo las clases Usuario y Teléfono en el paquete modelo siguiendo el diagrama de clases.
 
 Diagrama de clases:
-https://raw.githubusercontent.com/VazquezAriel/PracticaDeLaboratorio-03-AgendaTelefonica-con-MVC-y-DAO/master/assets/DiagramaDeClases.jpeg
+
+https://github.com/VazquezAriel/PracticaDeLaboratorio-03-AgendaTelefonica-con-MVC-y-DAO/blob/master/Diagrama%20de%20Clases.jpeg
