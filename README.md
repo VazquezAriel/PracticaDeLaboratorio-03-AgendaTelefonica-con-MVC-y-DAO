@@ -53,4 +53,4 @@ En esta Practica se implementa los patrones de diseño MVC y DAO persistiendo la
 
 ![](https://github.com/VazquezAriel/PracticaDeLaboratorio-03-AgendaTelefonica-con-MVC-y-DAO/blob/master/Inicio%20de%20sesion.jpeg)
 
-Si decea comprobar todos las opciones disponibles se recomienda descargar la practica y abrir la misma en NetBeans
+Si decea comprobar todos las opciones disponibles se recomienda descargar el proyecto y abrirlo en NetBeans
