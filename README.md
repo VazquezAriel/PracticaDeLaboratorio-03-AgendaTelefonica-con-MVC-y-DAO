@@ -22,7 +22,7 @@ En esta Practica se implementa los patrones de diseño MVC y DAO persistiendo la
 
 + Se creo las clases Usuario y Teléfono en el paquete modelo siguiendo el diagrama de clases.
 
-**Diagrama de Clases:
+**Diagrama de Clases:**
 
 ![](https://github.com/VazquezAriel/PracticaDeLaboratorio-03-AgendaTelefonica-con-MVC-y-DAO/blob/master/Diagrama%20de%20Clases.jpeg)
 + En el paquete dao se creó las Interfaces IUsuarioDAO y ITelefonoDAO las cuales tienen los métodos CRUD, también se creó las clases UsuarioDAO y TelefonoDAO que implementan las interfaces ya mencionadas para de esta manera guardar en un Diccionario (Map) objetos de tipo Usuario(UsuarioDAO) y objetos de tipo Teléfono(TelefonoDAO).
